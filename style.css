@@ -1,0 +1,185 @@
+/* ALINHAMENTOS 
+
+Display Block - margin: auto;
+Display Flex - Align items: center, Justify content: center;
+Texto - Text Align: center;
+Display Absolute - Transform: TranslateX ou Y(-50%), Right, Left, Top ou Bottom: 50%;
+
+*/
+* {
+  /* Isso serve para zerar todas as configurações de espaçamento que vem como padrão no navegador */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Serve para quando vai adicionar um padding em algum conteiner, ele não alterar a largura da caixa em que está contido, tentar adaptar o padding para dentro daquela largura específica. */
+}
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --switch-bg-url: url(./assets/sun.svg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.2);
+}
+
+body {
+  background-image: var(
+    --bg-url
+  ); /* Adiciona uma imagem no fundo, a url indica o local em que está salvo */
+
+  background-repeat: no-repeat; /* por padrão a imagem se repete ao longo da tela do navegador, para isso não acontecer se bota o no repeat */
+
+  background-position: top center; /* por padrão ela é posicionada sem repetição na esquerda da tela, para centralizar a imagem se usa o center, e o top serve para mudar o ponto do eixo da imagem para a parte de cima, assim ele mostra toda a imagem na tela */
+
+  background-size: cover; /* a imagem continuava muito pequena, pois era uma imagem de mobile, então para cobrir a tela toda foi usado o cover */
+
+  /* UNINDO TODAS ESSAS PROPRIEDADES EM UMA SÓ */
+
+  /* Podemos unir todas essas propriedade usando apenas o background e adicionando as informações pela ordem: color image repeat position/size */
+
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  /* Para declarar um ID é usado o #nomedoid, para declarar uma classe é usado o .nomedaclasse e uma tag é usada a própria tag */
+  width: 360px;
+  margin: 56px auto 0px; /* o margin auto serve para alinhar horizontalmente no centro, automaticamente ele calcula e divide igualmente o lado direito e o esquerdo */
+
+  padding: 0px 24px;
+}
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  text-align: center;
+  width: 112px;
+}
+
+#profile p {
+  margin-top: 8px;
+  font-weight: 500;
+  line-height: 24 px;
+}
+
+ul {
+  list-style: none; /* Tira os pontinhos do canto da lista. */
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+ul li a {
+  display: flex; /* Permite o uso de alguns recursos que só o inline consegue executar */
+  justify-content: center; /* Alinha horizontalmente no centro da caixa em que está contido. */
+  align-items: center; /* Alinha  no verticalmente no centro da caixa em que está contido. */
+
+  padding: 16px 24px;
+
+  /* Parte Visual do Botão */
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  font-weight: 500;
+  text-decoration: none;
+
+  transition: background 0.2s; /* Adiciona uma transição de 0.2s entre o estado padrão e a alteração colocada no hover (apenas no background.) */
+}
+
+/* Pseudo-Selector */
+
+/* Hover é usado para criar mudanças no elemento quando coloca o mouse em cima. */
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+#social-links {
+  display: flex;
+  justify-content: center;
+
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+#social-links a {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+/* Normalmente se usa footer quando vai criar um cabeçalho na página */
+footer {
+  padding: 24px;
+  text-align: center;
+  font-size: 14px;
+}
+
+#switch {
+  position: relative; /* Está sendo usado para dar uma referência ao botão com position absolute, sendo assim ele usa o próprio switch de referência como se fosse a página inteira. */
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: white var(--switch-bg-url) no-repeat center;
+
+  position: absolute; /* Permite com que o elemento se mova pela página inteira sem ser barrado pelas margens e limitações impostas no código. */
+  z-index: 1; /* Bota o botão na camada 1, enquanto todo o resto está na camada 0, permitindo que ele sobreponha outros elementos */
+  left: 0;
+  transform: translateY(
+    -50%
+  ); /* Empurra 50% do elemento pra fora de onde está contido. */
+  top: 50%; /* Compensa os 50% pra fora com 50% pra dentro, assim fica centralizado no switch. */
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+.light #switch button {
+  left: initial; /* Trata o left do switch button como padrão inicial */
+  right: 0;
+}
