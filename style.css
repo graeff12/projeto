@@ -57,7 +57,8 @@ body * {
 
 #container {
   /* Para declarar um ID é usado o #nomedoid, para declarar uma classe é usado o .nomedaclasse e uma tag é usada a própria tag */
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
   margin: 56px auto 0px; /* o margin auto serve para alinhar horizontalmente no centro, automaticamente ele calcula e divide igualmente o lado direito e o esquerdo */
 
   padding: 0px 24px;
