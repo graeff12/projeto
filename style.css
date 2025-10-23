@@ -168,6 +168,11 @@ footer {
     -50%
   ); /* Empurra 50% do elemento pra fora de onde está contido. */
   top: 50%; /* Compensa os 50% pra fora com 50% pra dentro, assim fica centralizado no switch. */
+  animation: slide-back 0.2s;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -182,8 +187,7 @@ footer {
 }
 
 .light #switch button {
-  left: initial; /* Trata o left do switch button como padrão inicial */
-  right: 0;
+  animation: slide-in 0.2s forwards;
 }
 
 /* media queries */
@@ -194,5 +198,25 @@ footer {
   }
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* animation */
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
