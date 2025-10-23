@@ -48,6 +48,7 @@ body {
   /* Podemos unir todas essas propriedade usando apenas o background e adicionando as informações pela ordem: color image repeat position/size */
 
   background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh;
 }
 
 body * {
@@ -183,4 +184,15 @@ footer {
 .light #switch button {
   left: initial; /* Trata o left do switch button como padrão inicial */
   right: 0;
+}
+
+/* media queries */
+
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
 }
