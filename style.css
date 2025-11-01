@@ -32,6 +32,14 @@ Display Absolute - Transform: TranslateX ou Y(-50%), Right, Left, Top ou Bottom:
   --highlight-color: rgba(0, 0, 0, 0.2);
 }
 
+#spiderweb {
+  position: absolute;
+  transform: ScaleX(-1);
+  right: 0px;
+
+  max-width: 300px;
+}
+
 body {
   background-image: var(
     --bg-url
