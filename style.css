@@ -32,12 +32,39 @@ Display Absolute - Transform: TranslateX ou Y(-50%), Right, Left, Top ou Bottom:
   --highlight-color: rgba(0, 0, 0, 0.2);
 }
 
-#spiderweb {
-  position: absolute;
-  transform: ScaleX(-1);
-  right: 0px;
-
+.spiderweb {
   max-width: 300px;
+  position: fixed;
+
+  &#spiderweb1 {
+    transform: scaleX(-1);
+    width: 240px;
+    top: 0px;
+    right: 0px;
+  }
+
+  &#spiderweb2 {
+    height: 540px;
+    max-width: 100%;
+    top: 0px;
+    left: 0px;
+  }
+
+  &#spiderweb3 {
+    height: 220px;
+    max-width: 100%;
+    transform: scaleY(-1);
+    bottom: 0px;
+    left: 0px;
+  }
+
+  &#spiderweb4 {
+    transform: scaleY(-1) scaleX(-1);
+    height: 430px;
+    max-width: 100%;
+    bottom: 0px;
+    right: 0px;
+  }
 }
 
 body {
