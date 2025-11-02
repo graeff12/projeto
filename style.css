@@ -110,6 +110,11 @@ body * {
   width: 112px;
 }
 
+#profile img:hover {
+  transform: rotate(360deg);
+  transition: transform 3s;
+}
+
 #profile p {
   margin-top: 8px;
   font-weight: 500;
