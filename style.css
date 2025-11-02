@@ -31,6 +31,15 @@ Display Absolute - Transform: TranslateX ou Y(-50%), Right, Left, Top ou Bottom:
   --surface-color-hover: rgba(0, 0, 0, 0.02);
   --highlight-color: rgba(0, 0, 0, 0.2);
 }
+body #profile img {
+  transform: rotate(0deg);
+  transition: transform 1s;
+}
+
+.light #profile img {
+  transform: rotate(360deg);
+  transition: transform 1s;
+}
 
 .spiderweb {
   max-width: 300px;
@@ -108,11 +117,6 @@ body * {
 #profile img {
   text-align: center;
   width: 112px;
-}
-
-#profile img:hover {
-  transform: rotate(360deg);
-  transition: transform 3s;
 }
 
 #profile p {
